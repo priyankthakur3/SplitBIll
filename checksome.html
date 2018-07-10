@@ -15,8 +15,8 @@
 
 <div class="bill-container">    
   <span>Bill:</span> 
-<input type="number" onClick="this.select();" onblur="updateBillAmt()" id="bill-amt" placeholder="Enter bill..">
-<button name="button" id="splitButton" type="button" onclick="" >Calculate</button>  
+<input type="number" onClick="this.select();"  id="bill-amt" placeholder="Enter bill..">
+<button name="button" id="splitButton" type="button" onclick="" >Save data</button>  
   <!-- <div id="rupSym">&#x20b9;</div> -->
 </div>
 
@@ -32,26 +32,24 @@
           <th>Pending</th>
           <th></th>
         </tr>
-        <!-- <tr>
-          <td contenteditable="true">Stir Fry</td>
-          <td contenteditable="true">stir-fry</td>
-          <td></td>
-          <td>
-            <span class="table-remove glyphicon glyphicon-remove"></span>
-          </td> -->
-         
-        </tr>
-        <!-- This is our clonable table line -->
-        <tr class="hide">
-          <td class="editable" contenteditable="true">Name:Abc</td>
-              <td class="editable" contenteditable="true">00</td>
-              <td>--</td>
+        <tr class="vis">
+          <td class="edi name" contenteditable="true">Name:Abc</td>
+          <td contenteditable="true" >
+            <span  contenteditable="true" class=" paid"><input class="paid-in" onclick="this.select();" placeholder="0" type="number"></span>
+            <span id="rupeeSym"> &#x20B9;</span>
+          </td>
+          <td class="pending" >--</td>
               <td>
                 <span class="table-remove glyphicon glyphicon-remove"></span></td>
-          <!-- <td>
-            <span class="table-up glyphicon glyphicon-arrow-up"></span>
-            <span class="table-down glyphicon glyphicon-arrow-down"></span>
-          </td> -->
+        </tr>
+         </tr>
+        <!-- This is our clonable table line -->
+        <tr class="hide">
+          <td class="edi name" contenteditable="true">Name:Abc</td>
+              <td contenteditable="true" ><span  contenteditable="true" class=" paid"><input class="paid-in"  onclick="this.select();" placeholder="0" type="number" text-align="center"></span><span id="rupeeSym"> &#x20B9;</span></td>
+              <td class="pending">--</td>
+              <td>
+                <span class="table-remove glyphicon glyphicon-remove"></span></td>
         </tr>
       </table>
     </div>

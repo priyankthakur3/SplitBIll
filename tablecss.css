@@ -1,6 +1,9 @@
-  .table-editable {
+.table-editable {
   position: relative;
+  width: 100%;
 }
+
+
 .table-editable .glyphicon {
   font-size: 20px;
 }
@@ -33,8 +36,22 @@
 }
 
 .container{
-  width: 95%;
+  display: none;
+  width: 100%;
   margin: auto;
-  margin-top: 4px;
+  margin-top: 0.4cm;
 
+}
+
+.paid-in{
+  text-align: right;
+  width: 80%;
+}
+
+.paid-in ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  text-align: right;
+}
+
+.name{
+  color: gray;
 }

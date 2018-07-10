@@ -1,46 +1,28 @@
-   
-function updateBillAmt(){
-    var e = document.getElementById("bill-amt");
-    console.log(e.value);
-    
-}
 
-
-
-
-    var c =1;
-
-    $("#addmem").click(function(){
-        $("#splitTable").append('<tr class="memDetails"><td class="memName">'+c+'.'+'</td><td class="paidAmt"><input type="number" onClick="this.select();" placeholder="Amount.."></td> <td class="pending">pending</td></tr>');
-        c=c+1;
-        var members = document.getElementsByClassName("memDetails");
-        console.log(members.length);
-    });
-
-function computeSplit(){
-    var bill = document.getElementById("bill-amt").value;
-    console.log("bill = "+bill);
-
-    /*check if there are members in split table
-        if yes ->
-            - count no. of members
-            - split bill equally
-            - calculate difference for each member
-            - display pending amount for each member
-    */
-}
-
-// var members = document.getElementsByClassName("memDetails");
-// console.log(members.length);
-
-
-
-var member_count = 2;
 class Member {
     constructor(name,bill,paid){
         this.name = name;
         this.paid = paid;
         this.pending =0;
+        this.bill = bill;
+    }
+
+    // constructor(){
+    //     this.name;
+    //     this.paid=0;
+    //     this.pending=0;
+    //     this.bill;
+    // }
+      
+    setName(name){
+        this.name = name;
+    }
+  
+    setPaid(paid){
+       this .paid = paid;
+    } 
+
+    setBill(bill){
         this.bill = bill;
     }
     
@@ -57,6 +39,7 @@ class Member {
     }
 }
 
+var member_count = 2;
 var shubham = new Member("shubham",30,12);
 var hema = new Member("hema",30,18);
 
@@ -68,3 +51,9 @@ memPool.push(shubham);
 memPool.push(hema);
 
 console.log(memPool);
+
+
+function getNoOfMem(){
+    var dataRows = document.getElementsByClassName("vis");
+    console.log("no of rows  :"+ dataRows.length);
+}
