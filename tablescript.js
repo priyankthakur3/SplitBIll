@@ -17,11 +17,12 @@ $('.table-remove').click(function () {
   $(".vis").each(function(){
     console.log("working from row......");
 
-    if($(".paid-in").val().length >0 && $("#bill-amt").val().length >0){
-      var paid = $(this).find(".paid-in").val();
+    if($(".paidA").text().length > 0 && $("#bill-amt").val().length >0){
+      var paid = parseInt($(this).find(".paidA").text());
       var billamt = $("#bill-amt").val();
       var $pending = $(this).find(".pending");
-      console.log(paid);
+      console.log(paid+10);
+      console.log("paid length" + $(".paidA").text().length);
       console.log(billamt);
       console.log($pending);
 
