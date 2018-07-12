@@ -3,17 +3,44 @@
 var $BTN = $('#export-btn');
 var $EXPORT = $('#export');
 
+
+
 $('.table-add').click(function () {
   var $clone = $TABLE.find('tr.hide').clone(true).removeClass('hide table-line').addClass('vis');
   $TABLE.find('table').append($clone);
-
-  // $(".table tr .vis :odd").css("background-color", "white");
-  // $(".table tr .vis :even").css("background-color", "#F4F4F8");
   getNoOfMem();
 });
 
 $('.table-remove').click(function () {
   $(this).parents('tr').detach();
+
+  $(".vis").each(function(){
+    console.log("working from row......");
+
+    if($(".paid-in").val().length >0 && $("#bill-amt").val().length >0){
+      var paid = $(this).find(".paid-in").val();
+      var billamt = $("#bill-amt").val();
+      var $pending = $(this).find(".pending");
+      console.log(paid);
+      console.log(billamt);
+      console.log($pending);
+
+      var rows = getNoOfMem();
+      let share = billamt / rows;
+      
+      let diff = paid - share;
+      if(diff >= 0 ){
+        $pending.html("Gets "+"Rs."+Math.abs(diff).toFixed(2));
+        console.log("working");
+  
+      }
+      else{
+        $pending.html("Gives "+"Rs."+Math.abs(diff).toFixed(2));
+        console.log("working");
+      }
+    }
+  });
+  
 });
 
 $('.table-up').click(function () {
@@ -67,7 +94,7 @@ $(".edi").click(function(){
   sel.addRange(range);
 });
 
-$(".paid").on( "keydown",function(event) {
+$(".paidA").on( "keydown",function(event) {
   if( isNaN(String.fromCharCode(event.which))){
       event.preventDefault(); 
   }
@@ -88,11 +115,7 @@ function updateBillAmt(){
   console.log(e.value);
   
 }
-//to color alternate table row
-function colorAltRow(){  
-  $(".table tr:even").css("background-color", "#F4F4F8");
-  $(".table tr:odd").css("background-color", "white");
-}
+
 
 function getNoOfMem(){
   let dataRows = document.getElementsByClassName("vis");
@@ -100,41 +123,38 @@ function getNoOfMem(){
   return dataRows.length;
 }
 
-$(".paid-in").on('blur',function(){
-  if ($(this).val().length > 0){
-    //get no of rows in table
-    var rows = getNoOfMem();
-    
-    //get bill amount
-    let billamt = $("#bill-amt").val();
-    console.log('bill amount : '+ billamt);
-    
-    //calculate share of each member
-    let share = billamt / rows;
-    console.log('share= '+ share); 
+$('input, td').on('blur',function(){
+  $(".vis").each(function(){
+    console.log("working from row......");
 
-    //get paid amount of the member
-    var paid = $(this).val();
-    console.log("paid: "+paid);
-    var $span = $(this).parent();
-    var $td = $span.parent();
-    var $pending = $td.next();
-    var $name = $td.prev();
-    console.log($pending);
-    console.log($name);
-    
-    let diff = paid - share;
-    console.log("difference: "+diff);
+    if($(".paidA").text().length > 0 && $("#bill-amt").val().length >0){
+      var paid = parseInt($(this).find(".paidA").text());
+      var billamt = $("#bill-amt").val();
+      var $pending = $(this).find(".pending");
+      console.log(paid+10);
+      console.log("paid length" + $(".paidA").text().length);
+      console.log(billamt);
+      console.log($pending);
 
-    if(diff >= 0 ){
-      $pending.html("Get "+"Rs."+Math.abs(diff));
-      console.log("working");
-
+      var rows = getNoOfMem();
+      let share = billamt / rows;
+      
+      let diff = paid - share;
+      if(diff >= 0 ){
+        $pending.html("Gets "+"Rs."+Math.abs(diff).toFixed(2));
+        console.log("working");
+  
+      }
+      else{
+        $pending.html("Gives "+"Rs."+Math.abs(diff).toFixed(2));
+        console.log("working");
+      }
     }
-    else{
-      $pending.html("Give "+"Rs."+Math.abs(diff));
-      console.log("working");
-    }
-    
-}
+  });
 });
+
+// $(".paidA").on( "keydown",function(event) {
+//   if(event.which != 8 && event.which !=46 && isNaN(String.fromCharCode(event.which))){
+//       event.preventDefault(); 
+//   }
+// });

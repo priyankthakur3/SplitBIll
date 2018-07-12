@@ -1,11 +1,13 @@
 table {
   margin: auto;
-    max-width: 95%;
+    max-width: 100%;
     border-collapse: collapse;
     font-size: 15px;
     border-spacing: 0;
     width: 100%;
     border: 1px solid #da8a8a;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
     /* border-bottom:1px solid rgb(204, 210, 216); */
 }
 
@@ -14,11 +16,16 @@ th, td {
     padding: 8px;
 }
 
-th:nth-child(2), td:nth-child(2){
+th:nth-child(2){
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
 }
-
+td:nth-child(2){
+  border-left: 1px solid #ddd;
+}
+td:nth-child(3){
+  border-right: 1px solid #ddd;
+}
 th:nth-child(2){
   text-align: center;
 }
@@ -133,4 +140,5 @@ body{
 
 #rupee{
   max-height: 15px;
+  text-align: left;
 }

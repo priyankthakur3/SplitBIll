@@ -24,20 +24,21 @@
 <div class="container">
                
     <div id="table" class="table-editable">
-      <span class="table-add glyphicon glyphicon-plus"></span>
+      <!-- <span class="table-add glyphicon glyphicon-plus"></span> -->
       <table class="table">
         <tr>
           <th>Member</th>
-          <th>Paid</th>
+          <th colspan="2">Paid</th>
           <th>Pending</th>
           <th></th>
         </tr>
         <tr class="vis">
           <td class="edi name" contenteditable="true">Name:Abc</td>
-          <td contenteditable="true" >
-            <span  contenteditable="true" class=" paid"><input class="paid-in" onclick="this.select();" placeholder="0" type="number"></span>
-            <span id="rupeeSym"> &#x20B9;</span>
+          <td><span id="rupeeSym" class="paidB"> Rs.</span></td>
+          <td contenteditable="true" class="paidA edi" >
+                       
           </td>
+          
           <td class="pending" >--</td>
               <td>
                 <span class="table-remove glyphicon glyphicon-remove"></span></td>
@@ -46,16 +47,21 @@
         <!-- This is our clonable table line -->
         <tr class="hide">
           <td class="edi name" contenteditable="true">Name:Abc</td>
-              <td contenteditable="true" ><span  contenteditable="true" class=" paid"><input class="paid-in"  onclick="this.select();" placeholder="0" type="number" text-align="center"></span><span id="rupeeSym"> &#x20B9;</span></td>
-              <td class="pending">--</td>
+          <td><span id="rupeeSym" class="paidB"> Rs.</span></td>
+          <td contenteditable="true" class="paidA edi" >
+                       
+          </td>
+          
+          <td class="pending" >--</td>
               <td>
                 <span class="table-remove glyphicon glyphicon-remove"></span></td>
         </tr>
       </table>
+      
     </div>
-    
-    <button id="export-btn" class="btn btn-primary">Export Data</button>
-    <p id="export"></p>
+    <div class="table-add glyphicon glyphicon-plus">Add Members</div><br>
+    <!-- <button id="export-btn" class="btn btn-primary">Export Data</button>
+    <p id="export"></p> -->
   </div>
  
 </body>

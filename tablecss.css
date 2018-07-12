@@ -9,31 +9,23 @@
 }
 
 .table-remove {
-  color: #700;
+  color: rgb(196, 189, 189);
   cursor: pointer;
 }
 .table-remove:hover {
-  color: #f00;
+  color: rgb(7, 6, 6);
 }
 
-.table-up, .table-down {
-  color: #007;
-  cursor: pointer;
-}
-.table-up:hover, .table-down:hover {
-  color: #00f;
-}
+
 
 .table-add {
-  color: #070;
-  cursor: pointer;
-  position: absolute;
-  top: 8px;
+  color: rgb(177, 57, 77);
+  margin-top: 0%;
   right: 2px;;
 }
-.table-add:hover {
+/* .table-add:hover {
   color: #0b0;
-}
+} */
 
 .container{
   display: none;
@@ -44,8 +36,8 @@
 }
 
 .paid-in{
-  text-align: right;
-  width: 80%;
+  text-align: left;
+  width: 4em;
 }
 
 .paid-in ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
